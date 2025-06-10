@@ -13,23 +13,21 @@ export const ContactSection = () => {
 
     emailjs
       .sendForm(
-        import.meta.env.VITE_SERVICE,    // Remplace par le tien
-        import.meta.env.VITE_TEMPLATE,   // Remplace par le tien
+        import.meta.env.VITE_SERVICE,    
+        import.meta.env.VITE_TEMPLATE,   
         form.current,
-        import.meta.env.VITE_ID     // Remplace par le tien
+        import.meta.env.VITE_ID          
       )
-      .then(
-        () => {
-          alert("Message sent successfully!");
-          setIsSubmitting(false);
-          form.current.reset();
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          alert("Something went wrong, please try again.");
-          setIsSubmitting(false);
-        }
-      );
+      .then(() => {
+        alert("Message sent successfully!");
+        setIsSubmitting(false);
+        form.current.reset();
+      })
+      .catch((error) => {
+        console.error("FAILED...", error);
+        alert("Something went wrong, please try again.");
+        setIsSubmitting(false);
+      });
   };
 
   return (
@@ -51,7 +49,7 @@ export const ContactSection = () => {
                 <input
                   type="text"
                   id="name"
-                  name="name"
+                  name="name"            
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="Idir Yahiaoui..."
@@ -65,7 +63,7 @@ export const ContactSection = () => {
                 <input
                   type="email"
                   id="email"
-                  name="email"
+                  name="email"           
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="john@gmail.com"
@@ -78,7 +76,7 @@ export const ContactSection = () => {
                 </label>
                 <textarea
                   id="message"
-                  name="message"
+                  name="message"         
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
                   placeholder="Hello, I'd like to talk about..."
